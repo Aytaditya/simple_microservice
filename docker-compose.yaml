@@ -1,0 +1,11 @@
+services:
+   mongo-user:  
+    image: mongo  
+    container_name:  usersdb
+    ports:
+      - "27017:27017" 
+    volumes:
+      - user-db-data:/data/db
+
+volumes:
+  user-db-data:   
