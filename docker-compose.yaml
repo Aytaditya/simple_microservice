@@ -1,5 +1,5 @@
 services:
-   mongo-user:  
+  mongo-user:  
     image: mongo  
     ports:
       - "27017:27017" 
@@ -7,4 +7,5 @@ services:
       - user-dbs-data:/data/db
 
 volumes:
-  user-dbs-data:   
+  user-dbs-data: 
+  
