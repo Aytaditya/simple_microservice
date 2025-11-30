@@ -10,6 +10,7 @@ app.get('/',(req,res)=>{
 
 app.use('/users',expressproxy('http://localhost:3001'));
 app.use('/captains',expressproxy('http://localhost:3002'));
+app.use('/rides',expressproxy('http://localhost:3003'));
 
 app.listen(PORT,()=>{
     console.log(`API Gateway running on port ${PORT}`);
