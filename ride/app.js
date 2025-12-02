@@ -5,6 +5,9 @@ const PORT=3003
 const app=express();
 const ridesRouter=require('./routes/rides.routes')
 const connectDB=require('./db/db')
+const rabbitMQ=require('./service/rabbit')
+const dotenv=require('dotenv');
+dotenv.config();
 
 app.use(express.json());
 app.use(cookieParser());
@@ -14,6 +17,7 @@ app.use('/',ridesRouter);
 const server=http.createServer(app);
 
 server.listen(PORT,()=>{
+    rabbitMQ.connect();
     connectDB();
     console.log(`Ride Service running on port ${PORT}`);
 })

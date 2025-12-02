@@ -5,6 +5,7 @@ const http=require('http');
 const userRouter=require('./routes/user.routes')
 const connectDB=require('./db/db')
 const cookieParser=require('cookie-parser')
+const rabbitMQ=require('./service/rabbit')
 
 app.use(express.json()); // Middleware to parse JSON request bodies
 app.use(cookieParser()); // Middleware to parse cookies
@@ -14,5 +15,6 @@ app.use('/',userRouter)
 server=http.createServer(app);
 server.listen(PORT,()=>{
     connectDB();
+    rabbitMQ.connect();
     console.log(`User Service running on port ${PORT}`);
 })
