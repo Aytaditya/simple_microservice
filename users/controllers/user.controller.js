@@ -3,6 +3,7 @@ const bcrypt=require('bcrypt')
 const jwt=require('jsonwebtoken')
 const dotenv=require('dotenv')
 dotenv.config();
+const {subscribeToQueue}=require('../service/rabbit')
 
 
 const jwt_secret="aditya"
